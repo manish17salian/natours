@@ -9,7 +9,7 @@ const Email = require('../utils/email')
 
 
 const signToken = id=>{
-    console.log(process.env.JWT_EXPIRES_IN)
+    // console.log(process.env.JWT_EXPIRES_IN)
     return jwt.sign({id:id}, process.env.JWT_SECRET,{
         expiresIn:process.env.JWT_EXPIRES_IN
     })
@@ -46,7 +46,7 @@ exports.signup = catchAsync( async(req,res, next)=>{
     })
 
     const url = `${req.protocol}://${req.get('host')}/me`;
-    console.log(url)
+    // console.log(url)
     await new Email(newUser, url).sendWelcome();
 
     createSendToken(newUser, 201, res)
@@ -143,7 +143,7 @@ exports.forgotPassword =  catchAsync(async (req,res,next) =>{
         user.passwordResetToken =  undefined;
         user.passwordRestExpires = undefined ;
     await user.save({validateBeforeSave:false})
-    console.log(error)
+    // console.log(error)
 
     return next(new AppError('There was an error',500))
     }

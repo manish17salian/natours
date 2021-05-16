@@ -5,7 +5,7 @@ class APIFeatures {
     }
   
     filter(){
-      console.log(this.queryString)
+      // console.log(this.queryString)
       // console.log(this.query)
   
       const queryObj = {

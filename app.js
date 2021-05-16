@@ -16,6 +16,7 @@ const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRouter');
 const bookingRouter = require('./routes/bookingRoutes')
 const cookieParser = require('cookie-parser');
+const compression = require('compression')
 
 //Start Express Application
 const app = express();
@@ -66,6 +67,7 @@ app.use(hpp({
 //and Whitelist is used to avoid case where we have implemented the above case
 
 
+app.use(compression())
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

@@ -39,13 +39,13 @@ if(logoutBtn) logoutBtn.addEventListener('click',logout)
 if(updateUser) {
     updateUser.addEventListener('submit',e=>{
         e.preventDefault();
-        console.log('clicked')
+        // console.log('clicked')
 
         const form = new FormData();
         form.append('name', document.getElementById('name').value);
         form.append('email', document.getElementById('email').value);
         form.append('photo', document.getElementById('photo').files[0]);
-        console.log(form);
+        // console.log(form);
 
 
         // const name = document.getElementById('name').value
