@@ -17,7 +17,8 @@ const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRouter');
 const bookingRouter = require('./routes/bookingRoutes')
 const cookieParser = require('cookie-parser');
-const compression = require('compression')
+const compression = require('compression');
+const bookingController = require('./controllers/bookingController');
 
 //Start Express Application
 const app = express();
@@ -49,6 +50,10 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter); //Limiter is used to limit the number of request 
+
+app.post('/webhook-checkout',express.raw({
+  type:'application/json'
+}), bookingController.webhookCheckout)
 
 app.use(express.json({
   limit: '10kb'
