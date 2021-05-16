@@ -1,4 +1,5 @@
 import '@babel/polyfill';
+import { showAlert } from './alert';
 import { login, logout } from './login';
 import { displayMap } from './mapbox';
 import { bookTour } from './stripe';
@@ -14,7 +15,7 @@ const logoutBtn = document.querySelector('.nav__el--logout')
 const updateUser = document.querySelector('.form-user-data')
 const updatePassword = document.querySelector('.form-user-password')
 const bookBtn = document.getElementById('book-tour')
-
+const alertMessage = document.querySelector('body').dataset.alert
 
 
 
@@ -85,3 +86,5 @@ if(bookBtn){
         bookTour(tourId)
     })
 }
+
+if(alertMessage) showAlert('Success', alertMessage)
