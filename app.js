@@ -17,7 +17,7 @@ const viewRouter = require('./routes/viewRouter');
 const bookingRouter = require('./routes/bookingRoutes')
 const cookieParser = require('cookie-parser');
 
-
+//Start Express Application
 const app = express();
 
 app.set('view engine', 'pug');
